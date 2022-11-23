@@ -4,7 +4,7 @@ author: cotes
 date: 2019-08-09 20:55:00 +0800
 categories: [Blogging, Tutorial]
 tags: [getting started]
-pin: true
+pin: false
 ---
 
 ## Prerequisites
@@ -35,13 +35,14 @@ $ bash tools/init.sh
 ```
 
 > If you don't want to deploy your site on GitHub Pages, append option `--no-gh` at the end of the above command.
-{: .prompt-info }
+> {: .prompt-info }
 
 The above command will:
 
 1. Removes some files or directories from your repository:
-    - `.travis.yml`{: .filepath}
-    - files under `_posts`{: .filepath}
+   
+   - `.travis.yml`{: .filepath}
+   - files under `_posts`{: .filepath}
 
 2. If the option `--no-gh` is provided, the directory `.github`{: .filepath} will be deleted. Otherwise, set up the GitHub Action workflow by removing the extension `.hook`{: .filepath} of `.github/workflows/pages-deploy.yml.hook`{: .filepath}, and then remove the other files and directories in the folder `.github`{: .filepath}.
 
@@ -150,23 +151,24 @@ Unless you specified the output path, the generated site files will be placed in
 It depends on how you use the theme:
 
 - If you are using the theme gem (there will be `gem "jekyll-theme-chirpy"` in the `Gemfile`{: .filepath}), editing the `Gemfile`{: .filepath} and update the version number of the theme gem, for example:
-
+  
   ```diff
   - gem "jekyll-theme-chirpy", "~> 3.2", ">= 3.2.1"
   + gem "jekyll-theme-chirpy", "~> 3.3", ">= 3.3.0"
   ```
+  
   {: .nolineno file="Gemfile" }
-
+  
   And then execute the following command:
-
+  
   ```console
   $ bundle update jekyll-theme-chirpy
   ```
-
+  
   As the version upgrades, the critical files (for details, see the [Startup Template][starter]) and configuration options will change. Please refer to the [Upgrade Guide](https://github.com/cotes2020/jekyll-theme-chirpy/wiki/Upgrade-Guide) to keep your repo's files in sync with the latest version of the theme.
 
 - If you forked from the source project (there will be `gemspec` in the `Gemfile`{: .filepath} of your site), then merge the [latest upstream tags][latest-tag] into your Jekyll site to complete the upgrade.
-The merge is likely to conflict with your local modifications. Please be patient and careful to resolve these conflicts.
+  The merge is likely to conflict with your local modifications. Please be patient and careful to resolve these conflicts.
 
 [starter]: https://github.com/cotes2020/chirpy-starter
 [use-starter]: https://github.com/cotes2020/chirpy-starter/generate
